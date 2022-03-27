@@ -7,7 +7,15 @@ void main() {
       theme: ThemeData(primarySwatch: Colors.blue)));
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  var myText = "Enter your name";
+  TextEditingController _myTextEdittingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,15 +51,28 @@ class HomePage extends StatelessWidget {
           ),
         ),
         body: Container(
-          padding: EdgeInsets.fromLTRB(0, 0, 0, 50),
-          child: Center(
-            child: Text(
-              "Apoorv Mishra..!!",
-              style: TextStyle(color: Colors.black, fontSize: 30),
-            ),
-          ),
-        ),
+            padding: EdgeInsets.fromLTRB(30, 30, 30, 50),
+            child: Column(
+              children: [
+                Text(
+                  myText,
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                ),
+                Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: TextField(
+                        controller: _myTextEdittingController,
+                        decoration: InputDecoration(
+                            hintText: "Enter your name",
+                            labelText: "Name",
+                            border: OutlineInputBorder())))
+              ],
+            )),
         floatingActionButton: FloatingActionButton(
-            child: Icon(Icons.supervised_user_circle), onPressed: () {}));
+            child: Icon(Icons.supervised_user_circle),
+            onPressed: () {
+              myText = _myTextEdittingController.text;
+              setState(() {});
+            }));
   }
 }
