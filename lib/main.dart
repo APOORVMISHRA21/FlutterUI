@@ -4,139 +4,54 @@ void main() {
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomePage(),
-      theme: ThemeData(primarySwatch: Colors.red)));
+      theme: ThemeData(primarySwatch: Colors.blue)));
 }
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Picsbar")),
-      body: Container(
-        color: Colors.cyanAccent,
-        child: Center(
-          child: Container(
-              color: Colors.amber,
-              padding: EdgeInsets.fromLTRB(0, 0, 0, 200),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Container(
-                          width: 100,
-                          height: 100,
-                          margin: EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4),
-                              color: Colors.red),
-                          child: Center(
-                              child: Text("1",
-                                  style: TextStyle(
-                                      fontSize: 50, color: Colors.black)))),
-                      Container(
-                          width: 100,
-                          height: 100,
-                          margin: EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4),
-                              color: Colors.red),
-                          child: Center(
-                              child: Text("2",
-                                  style: TextStyle(
-                                      fontSize: 50, color: Colors.black)))),
-                      Container(
-                          width: 100,
-                          height: 100,
-                          margin: EdgeInsets.all(4),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(4),
-                              color: Colors.red),
-                          child: Center(
-                              child: Text("3",
-                                  style: TextStyle(
-                                      fontSize: 50, color: Colors.black))))
-                    ],
-                  ),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(
-                            width: 100,
-                            height: 100,
-                            margin: EdgeInsets.all(4),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                color: Colors.red),
-                            child: Center(
-                                child: Text("4",
-                                    style: TextStyle(
-                                        fontSize: 50, color: Colors.black)))),
-                        Container(
-                            width: 100,
-                            height: 100,
-                            margin: EdgeInsets.all(4),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                color: Colors.red),
-                            child: Center(
-                                child: Text("5",
-                                    style: TextStyle(
-                                        fontSize: 50, color: Colors.black)))),
-                        Container(
-                            width: 100,
-                            height: 100,
-                            margin: EdgeInsets.all(4),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                color: Colors.red),
-                            child: Center(
-                                child: Text("6",
-                                    style: TextStyle(
-                                        fontSize: 50, color: Colors.black))))
-                      ]),
-                  Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Container(
-                            width: 100,
-                            height: 100,
-                            margin: EdgeInsets.all(4),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                color: Colors.red),
-                            child: Center(
-                                child: Text("7",
-                                    style: TextStyle(
-                                        fontSize: 50, color: Colors.black)))),
-                        Container(
-                            width: 100,
-                            height: 100,
-                            margin: EdgeInsets.all(4),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                color: Colors.red),
-                            child: Center(
-                                child: Text("8",
-                                    style: TextStyle(
-                                        fontSize: 50, color: Colors.black)))),
-                        Container(
-                            width: 100,
-                            height: 100,
-                            margin: EdgeInsets.all(4),
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(4),
-                                color: Colors.red),
-                            child: Center(
-                                child: Text("9",
-                                    style: TextStyle(
-                                        fontSize: 50, color: Colors.black))))
-                      ])
-                ],
-              )),
+        appBar: AppBar(title: Text("Picsbar")),
+        drawer: Drawer(
+          child: ListView(
+            padding: const EdgeInsets.all(0),
+            children: [
+              UserAccountsDrawerHeader(
+                accountName: Text("Apoorv Mishra"),
+                accountEmail: Text("443_bt19@iiitkalyani.ac.in"),
+                currentAccountPicture: CircleAvatar(
+                  backgroundImage: NetworkImage(
+                      "https://images.unsplash.com/flagged/photo-1570612861542-284f4c12e75f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"),
+                ),
+              ),
+              ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text("Apoorv Mishra"),
+                  subtitle: Text("Developer"),
+                  trailing: Icon(Icons.edit)),
+              ListTile(
+                  leading: Icon(Icons.mail),
+                  title: Text("Email"),
+                  subtitle: Text("443_bt19@iiitkalyani.ac.in"),
+                  trailing: Icon(Icons.edit)),
+              ListTile(
+                leading: Icon(Icons.logout),
+                title: Text("Log Out"),
+              ),
+              ListTile(leading: Icon(Icons.star), title: Text("Rate Us"))
+            ],
+          ),
         ),
-      ),
-    );
+        body: Container(
+          padding: EdgeInsets.fromLTRB(0, 0, 0, 50),
+          child: Center(
+            child: Text(
+              "Apoorv Mishra..!!",
+              style: TextStyle(color: Colors.black, fontSize: 30),
+            ),
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.supervised_user_circle), onPressed: () {}));
   }
 }
